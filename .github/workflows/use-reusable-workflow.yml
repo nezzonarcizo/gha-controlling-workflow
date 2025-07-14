@@ -69,6 +69,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml
+    with:
+      artifact-name: dist-files
   report:
     needs: [lint, deploy] # report failure() will not just wait for lint and deploy, but every step between then
     if: failure()
